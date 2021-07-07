@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+    <style>
+        .map {
+            height: 600px;
+            width: 1000px;
+        }
+        .ol-popup {
+            background-color: whitesmoke;
+            font-family: "Century",serif ;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js">
+
+    </script>
+    <title>Pick-Up Locations</title>
+</head>
+<body>
+
+
+<div id="map" class="map"></div>
+
+<div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+
+</div>
+<script type="text/javascript">
+
+
+    //create map, center is 1st district, Vienna
+
+    let map = new ol.Map({
+
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            })
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([16.4, 48.23]),
+            zoom: 12
+        })
+
+    });
+
+
+    //create 1st marker (1st district, Stephansplatz)
+
+    let markers1 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: new ol.style.Style({
+            image: new ol.style.Icon({
+                anchor: [0.5, 1],
+                src: '../files/map-marker-icon.png',
+                scale: 0.05,
+
+            })
+        })
+    });
+    map.addLayer(markers1);
+
+    let marker1 = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([16.37208, 48.20849])));
+    markers1.getSource().addFeature(marker1);
+
+
+    //create 2nd marker (22nd district, Seestadt)
+
+
+    let markers2 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: new ol.style.Style({
+            image: new ol.style.Icon({
+                anchor: [0.6, 1],
+                src: '../files/map-marker-icon.png',
+                scale: 0.05,
+            })
+        })
+    });
+    map.addLayer(markers2);
+
+    let marker2 = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([16.503611, 48.225833])));
+    markers2.getSource().addFeature(marker2);
+
+
+    //create 3rd marker (21st district, Floridsdorf)
+
+
+    let markers3 = new ol.layer.Vector({
+        source: new ol.source.Vector(),
+        style: new ol.style.Style({
+            image: new ol.style.Icon({
+                anchor: [0.6, 1],
+                src: '../files/map-marker-icon.png',
+                scale: 0.05,
+            })
+        })
+    });
+    map.addLayer(markers3);
+
+    let marker3 = new ol.Feature(new ol.geom.Point(ol.proj.fromLonLat([16.4, 48.26])));
+    markers2.getSource().addFeature(marker3);
+
+
+
+
+
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+    var closer = document.getElementById('popup-closer');
+
+    var overlay = new ol.Overlay({
+        element: container,
+        autoPan: true,
+        autoPanAnimation: {
+            duration: 250
+        }
+    });
+    map.addOverlay(overlay);
+
+    closer.onclick = function() {
+        overlay.setPosition(undefined);
+        closer.blur();
+        return false;
+    };
+
+
+
+    //create text for markers when clicked
+
+
+    map.on('singleclick', function (event) {
+        if (map.hasFeatureAtPixel(event.pixel) === true) {
+            var coordinate = event.coordinate;
+
+           content.innerHTML = '<b>Dusk Brewery</b><br />Pick-Up Location';
+            overlay.setPosition(coordinate);
+
+
+        } else {
+            overlay.setPosition(undefined);
+            closer.blur();
+        }
+
+    });
+
+
+
+
+</script>
+</body>
+</html>

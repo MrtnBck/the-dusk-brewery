@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TheDuskBrewery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/stylesheets/reset.css">
+        <link rel="stylesheet" href="/stylesheets/all.min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/media.css">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/javascripts/products.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="center-header">
+                    <a id="logo" href="/"><h1>The Dusk Brewery</h1></a>
+                    <ul class="menu">
+                        <li><a href="/us">About us</a></li>
+                        <li><a href="/">Logout</a></li>
+                    </ul>
+                </div><!--center-header-->
+            </header>
+            <div class="wrapp-product">
+                <div class="wrapp-cart">
+                    <!-- <a class="link"><i class="fas fa-shopping-cart"></i> Shopping cart</a> -->
+                    <button id="btn-cart" class=link ><i class="fas fa-shopping-cart"></i>Shopping cart</button>
+                </div>
+                <h1>Our product list</h1>
+                <div id="quote-div" class="wrapp-blockquote"> </div>
+                <div id="products"></div>
+            </div><!--wrapp-product-->
+            <footer></footer>
+        </div><!--wrapper-->
+    </body>
+</html>

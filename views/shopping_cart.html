@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TheDuskBrewery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="/stylesheets/reset.css">
+        <link rel="stylesheet" href="/stylesheets/all.min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/media.css">
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/javascripts/cart.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="center-header">
+                    <a id="logo" href="/"><h1>The Dusk Brewery</h1></a>
+                    <ul class="menu">
+                        <li><a href="/us">About us</a></li>
+                        <li><a href="/">Logout</a></li>
+                    </ul>
+                </div><!--center-header-->
+            </header>
+            <div class="wrapp-cart-list">
+                <h1>Your shopping cart</h1>
+                <button id="btn-del"class="link">Delete All</button>
+                <div class="wrapp-table-cart">
+                <table id=table-append>
+                    <tr>
+                        <th class="align-left cart-header">Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </table>
+                    <div class="order-summary">
+                        <h2 id="sum-text">Order summary</h2>
+                        <button id="order" class="link" >Order</button>
+                    </div> <!--wrapp-table-cart-->
+            </div><!--wrapp-cart-list-->
+
+            <div class="wrapp-contact">
+                <div class="contact">
+                    <p>Let's discuss <b>when to meet</b></p>
+                    <p>After you clicked to the order button, please contact us with the help of the following possibilities</p>
+                    <div class="wrapp-social-link">
+                        <a href="mailto:theduskbrewery@email.com"><i class="far fa-envelope"></i>theduskbrewery@email.com</a>
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> <span>https://facebook.com/TheDuskBrewery</span></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i>+49545785521</a>
+                    </div>
+                </div>
+                <div class="map">
+                    <p>Here you can see the <b>pick-up points</b></p>
+                    <iframe src="/map" width="600" height="450" style="border:0;" ></iframe>
+                </div>
+            </div><!--wrapp-contact-->
+            </div><!--wrapp-cart-list-->
+            <footer></footer>
+        </div><!--wrapper-->
+    </body>
+</html>
